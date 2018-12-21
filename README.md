@@ -3,4 +3,4 @@ Self-Driving-Detection project uses a R-CNN detectors with ResNet-50 Tensorflow 
 Also it detects highway road lanes by computer vision, which differentiates the color differences in desired region through multiple techniques like color transformation, Hough transformation, Canny edge detection, etc. 
 Also, multiprocessing is implemented to allow it to run on CPU efficiently.
 ## Example
-![](giphy.mp4)
+![](detection.gif)
