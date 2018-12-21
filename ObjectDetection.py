@@ -30,7 +30,7 @@ class ObjectDetection:
 	PATH_TO_LABELS = os.path.join('data', 'mscoco_label_map.pbtxt')
 
 	def __init__(self):
-		#self.downloadModel()
+		self.downloadModel()
 		self.loadTensorflowModel()
 
 	def downloadModel(self):
@@ -76,8 +76,8 @@ class ObjectDetection:
 			classes = np.squeeze(classes)
         # filter out wanted boxes based on classes c and threshold
 		selected = []
-		c = [1, 3, 10, 13] # cars
-		threshold = 0.4
+		c = [1, 3, 10, 13] # cars people light signs
+		threshold = 0.7
 		for i in range(len(classes)):
 			if classes[i] in c and scores[i] >= threshold:
 				selected.append(i)
@@ -85,7 +85,6 @@ class ObjectDetection:
 		scores = scores[selected, ...]
 		classes = classes[selected, ...]
 
-  		# draw the box
   		boxes = self.boxsize_conversion(image, boxes)
   		for i in range(len(boxes)):
   			bottom, left, top, right = boxes[i, ...]
